@@ -1,5 +1,5 @@
 <template>
-  <header role="banner">
+  <header class="header" role="banner">
     <h1 class="logo"><router-link to="/">Cupcakes & Cookies</router-link></h1>
     <nav role="navigation">
       <ul>
@@ -41,33 +41,72 @@ export default {
 }
 </script>
 
-<style>
-/*HEADER*/
+<style lang="scss" scoped>
+
+.header { // .header{}
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+  padding: 10px;
+}
+
 .logo {
-  float: left;
-  margin: 40px 0px;
+  margin: 0;
+  a {
+    display: block;
+    height: 82px;
+    width: 282px;
+    background: url(../assets/img/logo.png) 0 0 no-repeat;
+    text-indent: -9999px;
+  }
 }
 
-.logo a {
-  display: block;
-  height: 82px;
-  width: 282px;
-  background: url(../assets/img/logo.png) 0 0 no-repeat;
-  text-indent: -9999px;
-}
-
-/*menu*/
 nav {
-  float: right;
-  margin: 60px 0px 40px;
+  width: 100%;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    padding:0;
+    margin: 0;
+  }
 }
 
 nav ul li {
   background: #ee2461;
   border-radius: 40px;
-  float: left;
-  margin-left: 10px;
 }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  //tablet
+  .header { // .header{}
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    padding: 15px;
+  }
+ }
+
+@media (min-width: 1024px) {
+  //dektop
+  .header { // .header{}
+    grid-template-areas:
+      'logo . menu';
+    grid-template-columns: auto 1fr auto;
+    padding: 20px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  nav {
+    grid-area: menu
+  }
+}
+
+/*menu*/
+
 
 nav ul li:hover {
   box-shadow: #555555 0 0 6px;
