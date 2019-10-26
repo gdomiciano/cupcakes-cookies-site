@@ -17,24 +17,36 @@ export default {
 };
 </script>
 <style lang="scss">
+body {
+  background: #f6c5d4 url(../img/bg.jpg) 0 0 repeat;
+}
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 90%;
+  margin: 10px auto;
+  background: #fff;
+  box-shadow: #666666 0 0 7px;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 0 10px;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@media (min-width: 768px) and (max-width: 1023px) {
+  //tablet
+  #app {
+    width: 80%;
+    margin: 15px auto;
+    padding: 0 15px;
   }
-}
+ }
+
+@media (min-width: 1024px) {
+  //desktop
+  #app {
+    width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+ }
+
 </style>
