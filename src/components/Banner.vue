@@ -1,120 +1,89 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
-  </div>
+  <section class="banner">
+    <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+          <!-- <img v-for="(image, index) in images" :key="index" :src="image" alt=""/> -->
+          <img src="@/assets/img/banner/01.jpg" alt=""/>
+        </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String
+  name: 'Banner',
+
+  data () {
+    return {
+      images: [
+        './assets/img/banner/01.jpg',
+        './assets/img/banner/02.jpg',
+        './assets/img/banner/03.jpg',
+        './assets/img/banner/04.jpg',
+        './assets/img/banner/05.jpg'
+      ]
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+<style lang="scss" scoped>
+
+.banner {
+  width: 100%;
+  margin: 6px auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.banner .slider-wrapper {
+  position: relative;
 }
-li {
+
+.banner .theme-default .nivoSlider {
+  box-shadow: none;
+  text-align: center;
+}
+
+.banner .slider-wrapper #slider .niv-slice,
+.banner .slider-wrapper #slider .nivo-box {
+  position: absolute;
+  z-index: 20;
+}
+
+.banner .slider-wrapper .nivo-controlNav {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  z-index: 99;
+  display: block;
+}
+
+.banner .nivo-controlNav a {
+  background: url(../assets/img/global.png) 0 -705px;
+  width: 20px;
+  height: 20px;
   display: inline-block;
-  margin: 0 10px;
+  margin: 0px 5px;
 }
-a {
-  color: #42b983;
+
+.banner .nivo-controlNav a.active {
+  background-position: right -705px;
+}
+
+.banner .theme-default .nivo-directionNav a {
+  background-image: url(../assets/img/global.png);
+  display: block;
+  width: 46px;
+  height: 46px;
+  opacity: 1;
+  z-index: 99;
+}
+
+.banner .theme-default .nivo-directionNav .nivo-prevNav {
+  background-position: 0 -206px;
+}
+
+.banner .theme-default .nivo-directionNav .nivo-nextNav {
+  background-position: 0 -110px;
 }
 </style>
