@@ -1,13 +1,13 @@
 <template>
   <header class="header" role="banner">
     <h1 class="logo"><router-link to="/">Cupcakes & Cookies</router-link></h1>
-    <nav role="navigation">
+    <nav role="navigation" class="nav">
       <ul>
-        <li class="home"><router-link to="/">Home</router-link></li>
-        <li class="oQueE"><router-link to="/">O que é</router-link></li>
-        <li class="planos"><router-link to="/">Planos</router-link></li>
-        <li class="faq"><router-link to="/">FAQ</router-link></li>
-        <li class="login">
+        <li class="nav-item home"><router-link to="/">Home</router-link></li>
+        <li class="nav-item oQueE"><router-link to="/">O que é</router-link></li>
+        <li class="nav-item planos"><router-link to="/">Planos</router-link></li>
+        <li class="nav-item faq"><router-link to="/">FAQ</router-link></li>
+        <li class="nav-item login">
           <router-link to="/">Login</router-link>
           <div>
             <form action="">
@@ -47,11 +47,12 @@ export default {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .logo {
   margin: 0;
+
   a {
     display: block;
     height: 82px;
@@ -61,8 +62,11 @@ export default {
   }
 }
 
-nav {
+.nav {
   width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
 
   ul {
     display: grid;
@@ -73,9 +77,11 @@ nav {
   }
 }
 
-nav ul li {
+.nav .nav-item {
   background: #ee2461;
   border-radius: 40px;
+  list-style: none;
+  width: fit-content;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -89,9 +95,10 @@ nav ul li {
 
 @media (min-width: 1024px) {
   //dektop
-  .header { // .header{}
+  .header {
     grid-template-areas:
       'logo . menu';
+    grid-template-rows: 1fr;
     grid-template-columns: auto 1fr auto;
     padding: 20px;
   }
@@ -100,7 +107,7 @@ nav ul li {
     grid-area: logo;
   }
 
-  nav {
+  .nav {
     grid-area: menu
   }
 }
@@ -108,15 +115,15 @@ nav ul li {
 /*menu*/
 
 
-nav ul li:hover {
+.nav .nav-item:hover {
   box-shadow: #555555 0 0 6px;
 }
 
-nav ul li:first-child {
+.nav .nav-item:first-child {
   margin: 0;
 }
 
-nav ul li a {
+.nav .nav-item a {
   background-image: url(../assets/img/global.png);
   text-indent: -9999px;
   width: 42px;
@@ -126,35 +133,35 @@ nav ul li a {
   cursor: pointer;
 }
 
-nav ul li.home a {
+.nav .nav-item.home a {
   background-position: center -1102px;
 }
 
-nav ul li.oQueE a {
+.nav .nav-item.oQueE a {
   background-position: center -830px;
 }
 
-nav ul li.planos a {
+.nav .nav-item.planos a {
   background-position: center -1170px;
 }
 
-nav ul li.faq a {
+.nav .nav-item.faq a {
   background-position: center -898px;
 }
 
-nav ul li.login {
+.nav .nav-item.login {
   position: relative;
 }
 
-nav ul li.login a {
+.nav .nav-item.login a {
   background-position: center -1034px;
 }
 
-nav ul li.login div {
+.nav .nav-item.login div {
   display: none;
 }
 
-nav ul li.login:hover div {
+.nav .nav-item.login:hover div {
   display: block;
   position: absolute;
   top: 2px;
@@ -168,11 +175,11 @@ nav ul li.login:hover div {
   z-index: 50;
 }
 
-nav ul li.login:hover div form fieldset p {
+.nav .nav-item.login:hover div form fieldset p {
   margin-top: 5px;
 }
 
-nav ul li.login:hover div form fieldset p strong {
+.nav .nav-item.login:hover div form fieldset p strong {
   color: white;
   font-family: Signika;
   font-size: 18px;
@@ -184,15 +191,15 @@ nav ul li.login:hover div form fieldset p strong {
   padding-bottom: 5px;
 }
 
-nav ul li.login:hover div form fieldset p label {
+.nav .nav-item.login:hover div form fieldset p label {
   color: white;
   font-size: 14px;
   font-family: Tahoma;
   display: block;
 }
 
-nav ul li.login:hover div form fieldset p input[type="text"],
-nav ul li.login:hover div form fieldset p input[type="password"] {
+.nav .nav-item.login:hover div form fieldset p input[type="text"],
+.nav .nav-item.login:hover div form fieldset p input[type="password"] {
   border-radius: 5px;
   border: none;
   background: #b8053b;
@@ -205,15 +212,15 @@ nav ul li.login:hover div form fieldset p input[type="password"] {
   margin-top: 5px;
 }
 
-nav ul li.login:hover div form fieldset .lembrar {
+.nav .nav-item.login:hover div form fieldset .lembrar {
   overflow: hidden;
 }
 
-nav ul li.login:hover div form fieldset .lembrar [type="checkbox"] {
+.nav .nav-item.login:hover div form fieldset .lembrar [type="checkbox"] {
   display: none;
 }
 
-nav ul li.login:hover div form fieldset .lembrar label {
+.nav .nav-item.login:hover div form fieldset .lembrar label {
   padding-left: 20px;
   background: url(../assets/img/global.png) 0 -482px no-repeat;
   height: 20px;
@@ -221,11 +228,11 @@ nav ul li.login:hover div form fieldset .lembrar label {
   float: left;
 }
 
-nav ul li.login:hover div form fieldset .lembrar label.active {
+.nav .nav-item.login:hover div form fieldset .lembrar label.active {
   background-position: 0px -462px;
 }
 
-nav ul li.login:hover div form fieldset .lembrar a {
+.nav .nav-item.login:hover div form fieldset .lembrar a {
   float: right;
   text-indent: 0px;
   text-decoration: underline;
@@ -237,11 +244,11 @@ nav ul li.login:hover div form fieldset .lembrar a {
   height: auto;
 }
 
-nav ul li.login:hover div form fieldset .entrar {
+.nav .nav-item.login:hover div form fieldset .entrar {
   clear: both;
 }
 
-nav ul li.login:hover div form fieldset .entrar input[type="submit"] {
+.nav .nav-item.login:hover div form fieldset .entrar input[type="submit"] {
   background: #b8053b url(../assets/img/global.png) 7px -620px no-repeat;
   border-radius: 30px;
   border: none;
@@ -254,7 +261,7 @@ nav ul li.login:hover div form fieldset .entrar input[type="submit"] {
   height: 40px;
 }
 
-nav ul li.login:hover div form fieldset .entrar input[type="submit"]:hover {
+.nav .nav-item.login:hover div form fieldset .entrar input[type="submit"]:hover {
   box-shadow: #666666 0 0 6px;
 }
 </style>

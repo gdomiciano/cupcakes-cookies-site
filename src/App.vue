@@ -6,19 +6,23 @@
     </div> -->
     <the-header />
     <router-view />
+    <the-footer />
   </div>
 </template>
 <script>
 import TheHeader from './components/TheHeader'
+import TheFooter from './components/TheFooter'
+
 export default {
   components: {
-    TheHeader
+    TheHeader,
+    TheFooter
   }
 };
 </script>
 <style lang="scss">
 body {
-  background: #f6c5d4 url(../img/bg.jpg) 0 0 repeat;
+  background: #f6c5d4 url(/assets/img/bg.jpg) 0 0 repeat;
 }
 
 #app {
@@ -28,7 +32,6 @@ body {
   box-shadow: #666666 0 0 7px;
   overflow: hidden;
   border-radius: 10px;
-  padding: 0 10px;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -36,7 +39,6 @@ body {
   #app {
     width: 80%;
     margin: 15px auto;
-    padding: 0 15px;
   }
  }
 
@@ -45,7 +47,6 @@ body {
   #app {
     width: 1000px;
     margin: 20px auto;
-    padding: 0 20px;
   }
  }
 
