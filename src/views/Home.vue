@@ -2,8 +2,8 @@
   <div class="home">
     <banner/>
 
-    <section class="opcoes">
-      <h2>Conheça algumas opções de doces</h2>
+    <section class="options">
+      <h2 class="title">Conheça algumas opções de doces</h2>
       <candy-option v-for="option in options" :key="option.title" :title="option.title" :desc="option.desc" :list="option.list"/>
     </section>
   </div>
@@ -47,5 +47,16 @@ export default {
 .home {
   padding: 20px;
   overflow: hidden;
+}
+
+.options {
+  overflow: hidden;
+}
+
+.title {
+  color: #b8053b;
+  font-family: SignikaBold;
+  font-size: 28px;
+  margin: 14px 0px 10px;
 }
 </style>
