@@ -40,6 +40,14 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    console.log(process.env.VUE_APP_API_KEY, this, this.axios, this.$http)
+    this.$http.get('/search', {params: {q: 'chocolate'}})
+      .then(function(response) {
+        console.lo(response.data)
+      })
+    // this.$http.get('/random').then(res => console.log(res))
   }
 };
 </script>
