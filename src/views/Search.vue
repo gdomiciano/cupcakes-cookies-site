@@ -51,6 +51,9 @@ import SearchResultItem from '@/components/SearchResultItem'
     },
     beforeCreate (){
       console.log('APP Key', process.env, this)
+    },
+    mounted () {
+      console.log(this.$axios)
     }
   }
 </script>

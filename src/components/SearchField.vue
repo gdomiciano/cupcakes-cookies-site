@@ -1,7 +1,13 @@
 <template>
   <div class="search-field">
     <label for="search-input" class="search-label"> Search for your favorite dessert</label>
-    <input type="search" name="search-input" id="search-input" class="search-input">
+    <input
+      type="search"
+      name="search-input"
+      id="search-input"
+      class="search-input"
+      placeholder="Search for ingredients i.g chocolate, caramel, butter"
+    >
   </div>
 </template>
 
@@ -16,6 +22,13 @@
     display: grid;
     grid-template-rows: repeat(2, auto);
     grid-gap: 10px;
+  }
+
+  .search-input {
+    height: 30px;
+    border: 1px solid #666;
+    border-radius: 16px;
+    padding: 5px 10px;
   }
 
 </style>
