@@ -1,14 +1,16 @@
 <template>
   <main class="search">
-    <search-field />
-    <section cgit branchlass="search-results">
+    <search-field
+      @search="getSearchResults"
+    />
+    <section class="search-results">
       <search-result-item
       v-for="result in results"
-      :key="result.uri"
-      :image="result.image"
-      :title="result.label"
-      :health-labels="result.healthLabels"
-      :servings="result.yeld" />
+      :key="result.recipe.uri"
+      :image="result.recipe.image"
+      :title="result.recipe.label"
+      :health-labels="result.recipe.healthLabels"
+      :servings="result.recipe.yield" />
     </section>
   </main>
 </template>
@@ -26,34 +28,40 @@ import SearchResultItem from '@/components/SearchResultItem'
       return {
         results: [
           {
-            image: 'img/logo.png',
-            label: 'Chocolate Cupckacke',
-            yeld: 2, // servings
-            calories: 2,
-            healthLabels: ['vegan', 'vegetarian', 'paleo', 'dairy-free', 'gluten-free', 'wheat-free', 'fat-free', 'low-sugar', 'egg-free', 'peanut-free', 'tree-nut-free', 'soy-free', 'fish-free', 'shellfish-free'],
+            recipe: {
+              image: 'img/logo.png',
+              label: 'Chocolate Cupckacke',
+              yield: 2, // servings
+              calories: 2,
+              uri: 'jkjkj',
+              healthLabels: ['vegan', 'vegetarian', 'paleo', 'dairy-free', 'gluten-free', 'wheat-free', 'fat-free', 'low-sugar', 'egg-free', 'peanut-free', 'tree-nut-free', 'soy-free', 'fish-free', 'shellfish-free'],
+            }
           },
           {
-            image: 'img/logo.png',
-            label: 'Chocolate Cupckacke',
-            yeld: 2, // servings
-            calories: 2,
-            healthLabels: ['vegan', 'vegetarian', 'paleo', 'dairy-free', 'gluten-free', 'wheat-free', 'fat-free', 'low-sugar', 'egg-free', 'peanut-free', 'tree-nut-free', 'soy-free', 'fish-free', 'shellfish-free'],
-          },
-          {
-            image: 'img/logo.png',
-            label: 'Chocolate Cupckacke',
-            yeld: 2, // servings
-            calories: 2,
-            healthLabels: ['vegan', 'vegetarian', 'paleo', 'dairy-free', 'gluten-free', 'wheat-free', 'fat-free', 'low-sugar', 'egg-free', 'peanut-free', 'tree-nut-free', 'soy-free', 'fish-free', 'shellfish-free'],
+            recipe: {
+              image: 'img/logo.png',
+              label: 'Chocolate Cupckacke',
+              yield: 2, // servings
+              calories: 2,
+              uri: 'fdsfs',
+              healthLabels: ['vegan', 'vegetarian', 'paleo', 'dairy-free', 'gluten-free', 'wheat-free', 'fat-free', 'low-sugar', 'egg-free', 'peanut-free', 'tree-nut-free', 'soy-free', 'fish-free', 'shellfish-free'],
+            }
           }
         ]
       }
     },
-    beforeCreate (){
-      console.log('APP Key', process.env, this)
-    },
-    mounted () {
-      console.log(this.$axios)
+
+    methods: {
+      getSearchResults (searchText) {
+        this.$axios.get('/search', {
+          params: {
+            q: searchText
+          }
+        }).then(function(response) {
+          console.log(response.data)
+          if(response.data && response.data.length > 0) this.results = response.data
+        })
+      }
     }
   }
 </script>
