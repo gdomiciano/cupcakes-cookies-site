@@ -2,8 +2,8 @@
   <section class="banner">
     <div class="slider-wrapper theme-default">
         <div id="slider" class="nivoSlider">
-          <!-- <img v-for="(image, index) in images" :key="index" :src="image" alt=""/> -->
-          <img src="@/assets/img/banner/01.jpg" alt=""/>
+          <!-- <img v-for="(image, index) in images" :key="index" :src="require(`@/assets/${image}`)" alt=""/> -->
+          <img src="@/assets/img/banner/02.jpg" alt=""/>
         </div>
     </div>
   </section>
@@ -16,11 +16,11 @@ export default {
   data () {
     return {
       images: [
-        './assets/img/banner/01.jpg',
-        './assets/img/banner/02.jpg',
-        './assets/img/banner/03.jpg',
-        './assets/img/banner/04.jpg',
-        './assets/img/banner/05.jpg'
+        'img/banner/01.jpg',
+        'img/banner/02.jpg',
+        'img/banner/03.jpg',
+        'img/banner/04.jpg',
+        'img/banner/05.jpg'
       ]
     }
   }
