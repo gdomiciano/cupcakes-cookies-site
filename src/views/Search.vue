@@ -4,6 +4,7 @@
       @search="getSearchResults"
     />
     <section class="search-results">
+      <!-- {{ results }} -->
       <search-result-item
       v-for="result in results"
       :key="result.recipe.uri"
@@ -53,14 +54,12 @@ import SearchResultItem from '@/components/SearchResultItem'
 
     methods: {
       getSearchResults (searchText) {
+        let results
         this.$axios.get('/search', {
           params: {
             q: searchText
           }
-        }).then(function(response) {
-          console.log(response.data)
-          if(response.data && response.data.length > 0) this.results = response.data
-        })
+        }).then(response => (this.results = response.data.hits))
       }
     }
   }
