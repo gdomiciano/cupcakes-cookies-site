@@ -40,11 +40,13 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+
 .institutional {
     display: flex;
     flex-direction: column;
     color: #fff;
 }
+
 .social-medias {
   display: flex;
 }

@@ -95,7 +95,7 @@ export default {
     background-position: center -1046px;
   }
 
-  .icon-plain {
+  .icon-location {
     background-position: center -842px;
   }
 

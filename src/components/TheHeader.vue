@@ -7,10 +7,26 @@
       >
     </router-link>
 
-    <nav>
+    <nav class="menu">
       <link-button
         href="/"
         icon-name="home"
+      />
+      <link-button
+        href="/about"
+        icon-name="location"
+      />
+      <link-button
+        href="/"
+        icon-name="plans"
+      />
+      <link-button
+        href="/"
+        icon-name="faq"
+      />
+      <link-button
+        href="/"
+        icon-name="login"
       />
     </nav>
   </header>
@@ -35,5 +51,9 @@ export default {
     align-items: center;
     margin-bottom: 20px;
   }
-
+  .menu {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, auto);
+  }
 </style>
