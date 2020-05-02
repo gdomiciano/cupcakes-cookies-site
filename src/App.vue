@@ -13,24 +13,17 @@
 </template>
 
 <style>
+body {
+  background: #f6c5d4 url(/assets/img/bg.jpg) 0 0 repeat;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  width: 960px;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: #666666 0px 0px 7px;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 0 20px;
 }
 </style>
