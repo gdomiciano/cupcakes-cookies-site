@@ -9,24 +9,10 @@
 
     <nav class="menu">
       <link-button
+        v-for="icon in menuItems"
+        :key="icon"
         href="/"
-        icon-name="home"
-      />
-      <link-button
-        href="/about"
-        icon-name="location"
-      />
-      <link-button
-        href="/"
-        icon-name="plans"
-      />
-      <link-button
-        href="/"
-        icon-name="faq"
-      />
-      <link-button
-        href="/"
-        icon-name="login"
+        :icon-name="icon"
       />
     </nav>
   </header>
@@ -39,6 +25,11 @@ export default {
   name: 'TheHeader',
   components: {
     LinkButton,
+  },
+  data() {
+    return {
+      menuItems: ['home', 'location', 'plans', 'faq', 'login'],
+    };
   },
 };
 </script>
