@@ -3,7 +3,8 @@ module.exports = {
     sourceMap: true,
     loaderOptions: {
       css: {
-        url: true
+        url: true,
       },
+    },
   },
 };

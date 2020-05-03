@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .link-button {
     background: #ee2461;
     border-radius: 50%;
@@ -78,6 +78,8 @@ export default {
   }
 
   .icon-heart {
+    width: 60px;
+    height: 60px;
     background-position: 0 0;
   }
 
