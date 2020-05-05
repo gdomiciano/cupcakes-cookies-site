@@ -15,7 +15,7 @@
     </section>
     <section class="trial">
       <link-button
-        href=""
+        href="/"
         text="Faça um teste!"
         icon-name="heart"
       />
@@ -90,8 +90,20 @@ export default {
   }
   .section-title {
     color: #b8053b;
-    font-family: SignikaBold;
+    font-family: Signika;
+    font-weight: 700;
     font-size: 28px;
     grid-column: span 3;
+  }
+  .trial {
+    display: grid;
+    grid-gap: 20px;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+  }
+
+  .trial .link-button {
+    font-size: 26px;
+    align-items: center;
   }
 </style>

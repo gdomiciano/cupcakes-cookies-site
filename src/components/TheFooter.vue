@@ -2,7 +2,10 @@
   <footer class="footer">
     <div class="institutional">
       <small>Cupcakes & Cookies 2013. Todos os direitos reservados.</small>
-      <small>Conheça a nossa <a href="">Política de Privacidade.</a></small>
+      <small>Conheça a nossa <a
+        class="link"
+        href=""
+      >Política de Privacidade.</a></small>
     </div>
     <div class="social-medias">
       <link-button
@@ -41,10 +44,13 @@ export default {
   align-items: center;
 }
 
-.institutional {
+.institutional, .link {
+  color: #fff;
+}
+
+  .institutional {
     display: flex;
     flex-direction: column;
-    color: #fff;
 }
 
 .social-medias {

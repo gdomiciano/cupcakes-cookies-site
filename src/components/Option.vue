@@ -52,7 +52,8 @@ export default {
     .option-title {
       color: #ee2461;
       font-size: 24px;
-      font-family: SignikaBold;
+      font-family: Signika;
+      font-weight: 700;
     }
 
     .option-description,
@@ -63,7 +64,7 @@ export default {
 
     .option-list {
       padding: 0;
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
     .option-list-item {

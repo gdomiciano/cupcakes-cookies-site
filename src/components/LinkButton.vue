@@ -1,10 +1,16 @@
 <template>
   <a
     :href="href"
-    class="link-button"
+    :class="['link-button', {'rounded': hasText}]"
   >
-    <span :class="`icon icon-${iconName}`" />
-    {{ text }}
+    <span
+      v-if="iconName"
+      :class="`icon icon-${iconName}`"
+    />
+    <span
+      v-if="text"
+      class="text"
+    >{{ text }}</span>
   </a>
 </template>
 
@@ -25,6 +31,11 @@ export default {
       default: '',
     },
   },
+  computed: {
+    hasText() {
+      return !!this.text;
+    },
+  },
 };
 </script>
 
@@ -38,10 +49,12 @@ export default {
     font-size: 14px;
     text-decoration: none;
     display: flex;
+    width: fit-content;
   }
 
   .rounded {
-    border-radius: 30px;
+    padding: 10px 12px;
+    border-radius: 40px;
   }
 
   .icon {
@@ -123,4 +136,7 @@ export default {
     background-position: 0 -462px;
   }
 
+  .text {
+    margin-left: 12px;
+  }
 </style>
