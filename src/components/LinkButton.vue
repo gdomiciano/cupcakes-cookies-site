@@ -2,6 +2,7 @@
   <a
     :href="href"
     :class="['link-button', {'rounded': hasText}]"
+    @click.prevent="goToRoute"
   >
     <span
       v-if="iconName"
@@ -34,6 +35,15 @@ export default {
   computed: {
     hasText() {
       return !!this.text;
+    },
+  },
+  methods: {
+    goToRoute() {
+      if (this.href.startsWith('http')) {
+        window.open(this.href, '_blank');
+      } else {
+        this.$router.push(this.href);
+      }
     },
   },
 };

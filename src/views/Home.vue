@@ -15,7 +15,7 @@
     </section>
     <section class="trial">
       <link-button
-        href="/"
+        href="/about"
         text="Faça um teste!"
         icon-name="heart"
       />
